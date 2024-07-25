@@ -4,10 +4,12 @@ product:
 
 apply: [ ../common.module-template.yaml ]
 
-aliases:
-  - jvmAndAndroid: [jvm, android]
-
 dependencies:
+  - com.soywiz:korlibs-serialization:6.0.0: exported
+  - com.soywiz:korlibs-platform:6.0.0: exported
+  - com.soywiz:korlibs-string:6.0.0
+  - org.jetbrains.kotlinx:atomicfu:0.24.0: exported
 
 test-dependencies:
+  - org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC
 
