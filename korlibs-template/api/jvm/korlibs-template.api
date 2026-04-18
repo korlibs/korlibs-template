@@ -1368,7 +1368,7 @@ public class korlibs/template/KorteTemplateContent {
 
 public abstract interface class korlibs/template/KorteTemplateProvider : korlibs/template/KorteNewTemplateProvider {
 	public abstract fun get (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun newGet (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun newGet (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class korlibs/template/KorteTemplateProvider$DefaultImpls {
@@ -1474,10 +1474,10 @@ public final class korlibs/template/KorteToken$TTag : korlibs/template/KorteToke
 }
 
 public abstract interface class korlibs/template/KorteTokenContext {
-	public abstract fun exception (Ljava/lang/String;)Ljava/lang/Void;
+	public fun exception (Ljava/lang/String;)Ljava/lang/Void;
 	public abstract fun getFile ()Lkorlibs/template/KorteFileContext;
 	public abstract fun getPos ()I
-	public abstract fun getPosContext ()Lkorlibs/template/KorteFilePosContext;
+	public fun getPosContext ()Lkorlibs/template/KorteFilePosContext;
 	public abstract fun setFile (Lkorlibs/template/KorteFileContext;)V
 	public abstract fun setPos (I)V
 }
@@ -1578,21 +1578,21 @@ public abstract interface class korlibs/template/dynamic/KorteDynamic2Settable {
 
 public abstract interface class korlibs/template/dynamic/KorteDynamicContext {
 	public static final field Companion Lkorlibs/template/dynamic/KorteDynamicContext$Companion;
-	public abstract fun combineTypes (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public abstract fun compareTo (Ljava/lang/Number;Ljava/lang/Number;)I
-	public abstract fun dynamicCall (Ljava/lang/Object;[Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun dynamicCallMethod (Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun dynamicGet (Ljava/lang/Object;Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun dynamicLength (Ljava/lang/Object;)I
-	public abstract fun dynamicSet (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun toDynamicBool (Ljava/lang/Object;)Z
-	public abstract fun toDynamicCastToType (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public abstract fun toDynamicDouble (Ljava/lang/Object;)D
-	public abstract fun toDynamicInt (Ljava/lang/Object;)I
-	public abstract fun toDynamicList (Ljava/lang/Object;)Ljava/util/List;
-	public abstract fun toDynamicLong (Ljava/lang/Object;)J
-	public abstract fun toDynamicNumber (Ljava/lang/Object;)Ljava/lang/Number;
-	public abstract fun toDynamicString (Ljava/lang/Object;)Ljava/lang/String;
+	public fun combineTypes (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public fun compareTo (Ljava/lang/Number;Ljava/lang/Number;)I
+	public fun dynamicCall (Ljava/lang/Object;[Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dynamicCallMethod (Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dynamicGet (Ljava/lang/Object;Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dynamicLength (Ljava/lang/Object;)I
+	public fun dynamicSet (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Lkorlibs/template/dynamic/KorteObjectMapper2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toDynamicBool (Ljava/lang/Object;)Z
+	public fun toDynamicCastToType (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public fun toDynamicDouble (Ljava/lang/Object;)D
+	public fun toDynamicInt (Ljava/lang/Object;)I
+	public fun toDynamicList (Ljava/lang/Object;)Ljava/util/List;
+	public fun toDynamicLong (Ljava/lang/Object;)J
+	public fun toDynamicNumber (Ljava/lang/Object;)Ljava/lang/Number;
+	public fun toDynamicString (Ljava/lang/Object;)Ljava/lang/String;
 }
 
 public final class korlibs/template/dynamic/KorteDynamicContext$Companion {
@@ -1638,8 +1638,9 @@ public abstract interface class korlibs/template/dynamic/KorteDynamicShapeRegist
 	public abstract fun register (Ljava/lang/String;Lkotlin/jvm/functions/Function3;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
 	public abstract fun register (Lkotlin/reflect/KCallable;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
 	public abstract fun register (Lkotlin/reflect/KProperty;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
-	public abstract fun register ([Lkotlin/reflect/KCallable;Lkotlin/Unit;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
-	public abstract fun register ([Lkotlin/reflect/KProperty;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
+	public fun register ([Lkotlin/reflect/KCallable;Lkotlin/Unit;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
+	public fun register ([Lkotlin/reflect/KProperty;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
+	public static synthetic fun register$default (Lkorlibs/template/dynamic/KorteDynamicShapeRegister;[Lkotlin/reflect/KCallable;Lkotlin/Unit;ILjava/lang/Object;)Lkorlibs/template/dynamic/KorteDynamicShapeRegister;
 }
 
 public final class korlibs/template/dynamic/KorteDynamicShapeRegister$DefaultImpls {
@@ -1657,14 +1658,14 @@ public final class korlibs/template/dynamic/KorteDynamicTypeScope {
 }
 
 public abstract interface class korlibs/template/dynamic/KorteObjectMapper2 {
-	public abstract fun accessAny (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun accessAnyObject (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun get (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getDynamicShape (Lkorlibs/template/dynamic/KorteDynamicType;)Lkorlibs/template/dynamic/KorteDynamicShape;
-	public abstract fun hasMethod (Ljava/lang/Object;Ljava/lang/String;)Z
-	public abstract fun hasProperty (Ljava/lang/Object;Ljava/lang/String;)Z
-	public abstract fun invokeAsync (Lkotlin/reflect/KClass;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun set (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun accessAny (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun accessAnyObject (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun get (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getDynamicShape (Lkorlibs/template/dynamic/KorteDynamicType;)Lkorlibs/template/dynamic/KorteDynamicShape;
+	public fun hasMethod (Ljava/lang/Object;Ljava/lang/String;)Z
+	public fun hasProperty (Ljava/lang/Object;Ljava/lang/String;)Z
+	public fun invokeAsync (Lkotlin/reflect/KClass;Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun set (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class korlibs/template/dynamic/KorteObjectMapper2$DefaultImpls {

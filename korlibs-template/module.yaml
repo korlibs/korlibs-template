@@ -5,11 +5,11 @@ product:
 apply: [ ../common.module-template.yaml ]
 
 dependencies:
-  - com.soywiz:korlibs-serialization:6.0.0: exported
-  - com.soywiz:korlibs-platform:6.0.0: exported
-  - com.soywiz:korlibs-string:6.0.0
-  - org.jetbrains.kotlinx:atomicfu:0.24.0: exported
+  - org.korge:korlibs-serialization:6.1.0: exported
+  - org.korge:korlibs-platform:6.1.0: exported
+  - org.korge:korlibs-string:6.1.0
+  - org.jetbrains.kotlinx:atomicfu:0.32.1: exported
 
 test-dependencies:
-  - org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC
+  - org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2
 

@@ -547,4 +547,164 @@ class TemplateTest : BaseTest() {
                 .joinToString("\n")
         )
     }
+
+    @Test
+    fun testRenderWithVarargs() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "test.html" to "Hello {{ name }}, you are {{ age }} years old"
+            )
+        )
+        assertEquals(
+            "Hello John, you are 30 years old",
+            templates.render("test.html", "name" to "John", "age" to 30)
+        )
+    }
+
+    @Test
+    fun testRenderWithVarargsMultipleVariables() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "greeting.html" to "{{ greeting }} {{ name }}!"
+            )
+        )
+        assertEquals(
+            "Hello Alice!",
+            templates.render("greeting.html", "greeting" to "Hello", "name" to "Alice")
+        )
+    }
+
+    @Test
+    fun testRenderWithMap() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "test.html" to "Hello {{ name }}, you are {{ age }} years old"
+            )
+        )
+        val args = mapOf("name" to "Jane", "age" to 25)
+        assertEquals(
+            "Hello Jane, you are 25 years old",
+            templates.render("test.html", args)
+        )
+    }
+
+    @Test
+    fun testRenderWithMapMultipleVariables() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "data.html" to "{{ key1 }}: {{ key2 }}, {{ key3 }}"
+            )
+        )
+        val args = mapOf("key1" to "a", "key2" to "b", "key3" to "c")
+        assertEquals(
+            "a: b, c",
+            templates.render("data.html", args)
+        )
+    }
+
+    @Test
+    fun testRenderWithNull() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "test.html" to "Result: {{ value }}"
+            )
+        )
+        assertEquals(
+            "Result: ",
+            templates.render("test.html", null)
+        )
+    }
+
+    @Test
+    fun testPrenderWithVarargs() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "test.html" to "Hello {{ name }}"
+            )
+        )
+        val result = templates.prender("test.html", "name" to "World")
+        val output = StringBuilder()
+        result.write { output.append(it) }
+        assertEquals("Hello World", output.toString())
+    }
+
+    @Test
+    fun testPrenderWithVarargsMultiple() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "message.html" to "{{ a }}-{{ b }}-{{ c }}"
+            )
+        )
+        val result = templates.prender("message.html", "a" to "x", "b" to "y", "c" to "z")
+        val output = StringBuilder()
+        result.write { output.append(it) }
+        assertEquals("x-y-z", output.toString())
+    }
+
+    @Test
+    fun testPrenderWithMap() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "test.html" to "Hello {{ name }}"
+            )
+        )
+        val args = mapOf("name" to "Kotlin")
+        val result = templates.prender("test.html", args)
+        val output = StringBuilder()
+        result.write { output.append(it) }
+        assertEquals("Hello Kotlin", output.toString())
+    }
+
+    @Test
+    fun testPrenderWithMapMultiple() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "status.html" to "Status: {{ status }}, Code: {{ code }}"
+            )
+        )
+        val args = mapOf("status" to "OK", "code" to 200)
+        val result = templates.prender("status.html", args)
+        val output = StringBuilder()
+        result.write { output.append(it) }
+        assertEquals("Status: OK, Code: 200", output.toString())
+    }
+
+    @Test
+    fun testPrenderWithNull() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "test.html" to "Content: {{ value }}"
+            )
+        )
+        val result = templates.prender("test.html", null)
+        val output = StringBuilder()
+        result.write { output.append(it) }
+        assertEquals("Content: ", output.toString())
+    }
+
+    @Test
+    fun testRenderWithComplexTemplate() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "complex.html" to "{% for i in items %}{{ i }}{% end %}"
+            )
+        )
+        assertEquals(
+            "123",
+            templates.render("complex.html", "items" to listOf(1, 2, 3))
+        )
+    }
+
+    @Test
+    fun testPrenderWithComplexTemplate() = suspendTest {
+        val templates = KorteTemplates(
+            KorteTemplateProvider(
+                "list.html" to "{% for item in items %}{{ item }},{% end %}"
+            )
+        )
+        val result = templates.prender("list.html", "items" to listOf("a", "b", "c"))
+        val output = StringBuilder()
+        result.write { output.append(it) }
+        assertEquals("a,b,c,", output.toString())
+    }
 }
